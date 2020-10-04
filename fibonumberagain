@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,a,n) for (long long int i=a;i<n;i++)
+#define per(i,a,n) for (long long int i=n-1;i>=a;i--)
+#define pb push_back
+#define mp make_pair
+#define all(x) (x).begin(),(x).end()
+#define fi first
+#define se second
+#define SZ(x) ((int)(x).size())
+typedef vector<int> VI;
+typedef long long ll;
+typedef pair<int,int> PII;
+typedef double db;
+
+int main(){
+    long long a,b;
+    cin >> a >> b;
+    vector<long long> fib;
+    vector<long long> periodic;
+    fib.pb(0);
+    fib.pb(1);
+    periodic.pb(0);
+    periodic.pb(1);
+    rep(i,2,a+1){
+        long long g=fib[1];
+        fib[1]=(fib[0]+fib[1])%b;
+        fib[0]=g;
+        periodic.pb(fib[1]);
+         if(fib[0]==0&&fib[1]==1){
+             long long c= a%(SZ(periodic)-2);
+            cout << periodic[c]<<"\n";
+            break;
+        }
+        if(i==a){
+            cout << fib[1];
+            break;
+        }
+    }
+   }
