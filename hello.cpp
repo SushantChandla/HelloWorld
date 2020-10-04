@@ -1,6 +1,11 @@
-#include<stdio.h>
-int main()
-{
-	printf("hello world \n");
+#include <iostream>
+
+using namespace std;
+
+int main(){
+	while(1){
+		cout << "Hello World" << endl;
+		break;
+	}
 	return 0;
 }
