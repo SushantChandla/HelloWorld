@@ -1,0 +1,36 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ButtonDetector : MonoBehaviour
+{
+    PolygonCollider2D pb;
+    public Animator animator;
+    public bool activated=false;
+    // Start is called before the first frame update
+    void Start()
+    {
+        pb= FindObjectOfType<PolygonCollider2D>();
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+     void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.tag=="Player"){
+            animator.SetBool("Colliding",true);
+            activated=true;
+        }
+        Debug.Log("called");
+    }
+      void OnTriggerExit2D(Collider2D col)
+    {
+        if(col.tag=="Player"){
+            animator.SetBool("Colliding",false);
+            activated=false;
+        }
+        Debug.Log("called");
+    }
+}
